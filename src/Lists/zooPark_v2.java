@@ -1,0 +1,124 @@
+package Lists;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class zooPark_v2 {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            ArrayList<String> animals = new ArrayList<>();
+            animals.add("Шиншилла");
+            animals.add("Крокодил");
+            animals.add("Лев");
+            animals.add("Медведь");
+            animals.add("Слон");
+
+            while (true) {
+                printMenu();
+                int command = scanner.nextInt();
+                if (command == 1) {
+                    System.out.println("Сейчас в зоопарке можно увидеть " + animals.size() + " животных:");
+                    for(String animal: animals){
+                        System.out.println(animal);
+                    }
+                } else if (command == 2) {
+                    System.out.println("Какое животное хотите добавить?");
+                    String animal = scanner.next();
+                    animals.add(animal); // добавьте животное
+                } else if (command == 3) {
+                    System.out.println("Какое животное нужно удалить?");
+                    String animal = scanner.next();
+                    if(animal.isEmpty()){
+                        System.out.println("Список пуст!");
+                    }else{
+                        animals.remove(animal);
+                    }
+                    // удалите животное, если список не пуст
+                } else if (command == 4) {
+                    animals.clear(); // очистите список
+                    System.out.println("Все животные перевезены в другой зоопарк. Список пуст.");
+                } else if (command == 5) {
+                    System.out.println("Какое животное вы хотите увидеть в зоопарке?");
+                    String animal = scanner.next();
+                    boolean isAni = animals.contains(animal);
+                    if(isAni == true){
+                        System.out.println(animal + " на месте! Приходите посмотреть.");
+                    }else{
+                        System.out.println("Такого животного сейчас нет в нашем зоопарке.");
+                    }
+
+                    // допишите условия
+                    // System.out.println(animal + " на месте! Приходите посмотреть.");
+                    // System.out.println("Такого животного сейчас нет в нашем зоопарке.");
+                } else {
+                    break;
+                }
+            }
+        }
+
+        public static void printMenu() {
+            System.out.println("1 - Показать список животных в зоопарке.");
+            System.out.println("2 - Добавить животное в список.");
+            System.out.println("3 - Удалить животное из списка.");
+            System.out.println("4 - Очистить список.");
+            System.out.println("5 - Проверить, есть ли в зоопарке животное.");
+            System.out.println("Любая другая цифра - Выйти из приложения.");
+        }
+    }
+
+/*
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practicum {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("Шиншилла");
+        animals.add("Крокодил");
+        animals.add("Лев");
+        animals.add("Медведь");
+        animals.add("Слон");
+
+        while (true) {
+            printMenu();
+            int command = scanner.nextInt();
+            if (command == 1) {
+                System.out.println("Сейчас в зоопарке можно увидеть " + ... + " животных:");
+                for (...) {
+                    ... // напечатайте животных
+                }
+            } else if (command == 2) {
+                System.out.println("Какое животное хотите добавить?");
+                String animal = scanner.next();
+                ... // добавьте животное
+            } else if (command == 3) {
+                System.out.println("Какое животное нужно удалить?");
+                String animal = scanner.next();
+                ... // удалите животное, если список не пуст
+            } else if (command == 4) {
+                ... // очистите список
+                System.out.println("Все животные перевезены в другой зоопарк. Список пуст.");
+            } else if (command == 5) {
+                System.out.println("Какое животное вы хотите увидеть в зоопарке?");
+                String animal = scanner.next();
+                ... // допишите условия
+                    // System.out.println(animal + " на месте! Приходите посмотреть.");
+                    // System.out.println("Такого животного сейчас нет в нашем зоопарке.");
+            } else {
+                break;
+            }
+        }
+    }
+
+    public static void printMenu() {
+        System.out.println("1 - Показать список животных в зоопарке.");
+        System.out.println("2 - Добавить животное в список.");
+        System.out.println("3 - Удалить животное из списка.");
+        System.out.println("4 - Очистить список.");
+        System.out.println("5 - Проверить, есть ли в зоопарке животное.");
+        System.out.println("Любая другая цифра - Выйти из приложения.");
+	    }
+}
+ */
