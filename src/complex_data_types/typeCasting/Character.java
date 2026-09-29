@@ -22,7 +22,7 @@ public class Character {
             helpersNumber = characterHelpersNumber;
         }
     }
-}
+
 
 // class Character {
 //    int gold;
