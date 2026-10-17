@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class Main {
     // объявите поле для ссылки на карту (англ. map link)
-    public static final String link = "https://recyclemap.ru/";
+    public static final String MAP_LINK = "https://recyclemap.ru/";
     public static final ArrayList<RecyclableMaterial> materials = getMaterials();
     public static final HashMap<MaterialType, String> containers = getContainers();
+
+    ChatCommand MAP = ChatCommand.MAP;
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -27,10 +30,34 @@ public class Main {
                    4. вывести сообщение "Количество бонусных баллов: <баллы>."
         */
 
+        switch (commandValue) {
+            case  "map":
+                System.out.println(MAP_LINK);
+                break;
+            case "recyclability":
+                System.out.println("Введите код переработки:");
+                int code = scanner.nextInt();
+                isRecycled(code);
+                break;
+            case "bonus":
+                System.out.println("Введите количество вторсырья, кг:");
+                int weight = scanner.nextInt();
+                double coefficient;
+                if(weight < 10){
+                     coefficient = 10;
+                }else {
+                     coefficient = 15;
+                }
+                double bonus = weight + coefficient;
+                System.out.println("Количество бонусных баллов: "+ bonus + ".");
+        }
+
+
+
     }
 
     // добавьте модификаторы в заголовок метода
-    ...  void isRecycled(int code) {
+    public static void isRecycled(int code) {
         for (RecyclableMaterial material : materials) {
             if (material.getCode() == code) {
                 System.out.print("Это " + material.getDescription() + ". ");
@@ -46,7 +73,9 @@ public class Main {
     }
 
     // добавьте модификаторы в заголовок метода
-    ... HashMap<MaterialType, String> getContainers() {
+
+
+    static HashMap<MaterialType, String> getContainers() {
         HashMap<MaterialType, String> containers = new HashMap<>();
         containers.put(MaterialType.PLASTIC, "Пластик");
         containers.put(MaterialType.METAL, "Металл");

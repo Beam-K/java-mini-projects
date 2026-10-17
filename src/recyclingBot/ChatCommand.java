@@ -1,6 +1,6 @@
 package recyclingBot;
 
-public enum ChatCommand {
+ enum ChatCommand {
     MAP,
     RECYCLABILITY,
     BONUS
