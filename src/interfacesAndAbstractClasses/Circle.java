@@ -1,6 +1,6 @@
 package interfacesAndAbstractClasses;
 
-public class Circle {
+public class Circle implements Figure {
     // Радиус круга
     private final double r;
 

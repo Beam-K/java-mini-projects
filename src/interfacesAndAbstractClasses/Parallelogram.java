@@ -1,7 +1,11 @@
 package interfacesAndAbstractClasses;
 
-public ... Parallelogram ... {
-        }
+public abstract class Parallelogram implements Figure {
+
+    public abstract double getArea();
+}
+
+
 
 
         /*
