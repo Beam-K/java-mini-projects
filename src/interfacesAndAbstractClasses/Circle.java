@@ -1,0 +1,28 @@
+package interfacesAndAbstractClasses;
+
+public class Circle {
+    // Радиус круга
+    private final double r;
+
+    public Circle(double r) {
+        this.r = r;
+    }
+
+    public double getArea() {
+        return Math.PI * r * r;
+    }
+}
+/*
+public class Circle {
+    // Радиус круга
+    private final double r;
+
+    public Circle(double r) {
+        this.r = r;
+    }
+
+    public double getArea() {
+        return Math.PI * r * r;
+    }
+}
+ */
